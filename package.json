@@ -1,16 +1,25 @@
 {
-  "name": "0-simple-server-start",
+  "name": "render-dot-com-practice",
   "version": "1.0.0",
-  "description": "",
+  "description": "A practice server with PostgreSQL database integration for Render deployment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "knex migrate:latest",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "db:reset": "knex migrate:rollback && knex migrate:latest && knex seed:run"
   },
-  "keywords": [],
+  "keywords": ["express", "postgresql", "knex", "render"],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^17.2.1",
+    "express": "^4.19.2",
+    "knex": "^3.1.0",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
